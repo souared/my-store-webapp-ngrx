@@ -14,8 +14,8 @@
   <tbody>
     <tr *ngFor="let category of categories">
 
-      <th scope="row"> <a routerLink={{category.categoryID}}>Edit</a> </th>
-      <td> {{category.categoryName}}</td>
+      <th scope="row"> <a (click)="select.emit(category)">Edit</a> </th>
+      <td > {{category.categoryName}}</td>
       <td> {{category.categoryDescription}}</td>
       <td> {{category.active}} </td>
       <td> {{category.createdOn|date:'MMMM dd, y'}} </td>

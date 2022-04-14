@@ -25,6 +25,7 @@ export class CategoryService {
 
   save(category: CategoryRequiredProps) {
     let urlSufix = 'Category/Save';
-    return this.http.post<CategoryModel>(`${BASE_URL}/${urlSufix}`, category, HEADER);
+   return this.http.post<CategoryModel>(`${BASE_URL}/${urlSufix}`, category, HEADER);
+
   }
 }

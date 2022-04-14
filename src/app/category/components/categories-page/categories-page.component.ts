@@ -27,4 +27,27 @@ export class CategoriesPageComponent implements OnInit {
   ngOnInit(): void {
     this.store.dispatch(CategoriesPageActions.enter());
   }
+
+  onSelect(category: CategoryModel) {
+    this.store.dispatch(
+      CategoriesPageActions.selectCategory({ categoryID: category.categoryID })
+    );
+  }
+
+  onCancel() {
+    this.removeSelectedCategory();
+  }
+
+
+  onSave(category: CategoryRequiredProps | CategoryModel) {
+    this.saveCategory(category);
+  }
+
+  removeSelectedCategory() {
+    this.store.dispatch(CategoriesPageActions.clearSelectedCategory());
+  }
+
+  saveCategory(categoryProps: CategoryRequiredProps) {
+    this.store.dispatch(CategoriesPageActions.saveCategory({ category: categoryProps }));
+  }
 }

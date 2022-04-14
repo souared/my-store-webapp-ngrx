@@ -1,1 +1,33 @@
-<p>category-edit works!</p>
+<form [formGroup]="categoryForm" #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+  <div class="form-group">
+    <label for="categoryName">Category Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="categoryName"
+      formControlName="categoryName"
+      placeholder="Enter Category Name"
+    />
+
+  </div>
+  <br />
+  <div class="form-group">
+    <label for="categoryDescription">Description</label>
+    <textarea
+      class="form-control"
+      id="categoryDescription"
+      formControlName="categoryDescription"
+      placeholder="description"
+    ></textarea>
+  </div>
+  <br />
+  <!-- <div class="form-group">
+    <label for="categoryActive">Active</label> &nbsp;
+    <input  type="checkbox" id="categoryActive" formControlName="categoryActive" />
+  </div> -->
+  <hr />
+  <div class="text-right">
+    <button type="submit" class="btn btn-outline-primary mb-2 me-2">Save</button>
+    <button type="button" class="btn btn-outline-primary mb-2 me-2" (click)="cancel.emit()">Cancel</button>
+  </div>
+</form>
