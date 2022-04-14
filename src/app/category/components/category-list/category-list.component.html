@@ -1,4 +1,4 @@
-<h2>categories</h2>
+
 
 <table class="table">
   <thead>
@@ -12,7 +12,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let category of categories$|async">
+    <tr *ngFor="let category of categories">
 
       <th scope="row"> <a routerLink={{category.categoryID}}>Edit</a> </th>
       <td> {{category.categoryName}}</td>

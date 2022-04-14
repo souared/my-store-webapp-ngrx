@@ -6,18 +6,20 @@ import { EffectsModule } from '@ngrx/effects';
 import { CategoriesApiEffects } from './category-api.effects';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CategoriesPageComponent } from './components/categories-page/categories-page.component';
 
 
 
 @NgModule({
   declarations: [
     CategoryListComponent,
-    CategoryEditComponent
+    CategoryEditComponent,
+    CategoriesPageComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    RouterModule.forChild([{ path: "categories", component: CategoryListComponent }]),
+    RouterModule.forChild([{ path: "categories", component: CategoriesPageComponent }]),
     EffectsModule.forFeature([CategoriesApiEffects])
   ]
 })
