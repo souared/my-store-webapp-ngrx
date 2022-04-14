@@ -25,6 +25,6 @@ export class ProductService {
 
   save(client: ProductModel) {
     let urlSufix = 'Product/Save';
-    return this.http.post(`${BASE_URL}/${urlSufix}`, client, HEADER);
+    return this.http.post<ProductModel>(`${BASE_URL}/${urlSufix}`, client, HEADER);
   }
 }

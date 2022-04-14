@@ -14,6 +14,7 @@ import { RouterModule } from '@angular/router';
 import { reducers } from "./shared/state";
 import { CategoryModule } from './category';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ClientModule } from './client';
 
 @NgModule({
   declarations: [
@@ -24,13 +25,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot([
-      { path: "", pathMatch: "full", redirectTo: "/categories" }
+    //  { path: "", pathMatch: "full", redirectTo: "/categories" },
+      { path: "", pathMatch: "full", redirectTo: "/clients" }
     ]),
      StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([]),
    // StoreRouterConnectingModule.forRoot(),
    CategoryModule,
+   ClientModule,
    NgbModule
   ],
   providers: [],

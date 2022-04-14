@@ -1,1 +1,12 @@
-<p>clients-page works!</p>
+<h1>Clients</h1>
+>
+<div class="row">
+  <div class="col-lg-8">
+    <app-client-list
+      [clients]="clients$ | async"
+      (select)="onSelect($event)"
+    ></app-client-list>
+  </div>
+
+  <div class="col-sm-4"><app-client-edit></app-client-edit></div>
+</div>

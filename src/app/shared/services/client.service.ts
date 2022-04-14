@@ -1,8 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ClientModel } from '../models';
+import { ClientModel, ClientRequiredProps } from '../models';
 
-const BASE_URL = 'https://localhost:44301/';
+const BASE_URL = 'https://localhost:44301';
 const HEADER = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
 };
@@ -23,8 +23,8 @@ export class ClientService {
     return this.http.get<ClientModel>(`${BASE_URL}/${urlSufix}/${id}`);
   }
 
-  save(client: ClientModel) {
+  save(client: ClientRequiredProps) {
     let urlSufix = 'Client/Save';
-    return this.http.post(`${BASE_URL}/${urlSufix}`, client, HEADER);
+    return this.http.post<ClientModel>(`${BASE_URL}/${urlSufix}`, client, HEADER);
   }
 }

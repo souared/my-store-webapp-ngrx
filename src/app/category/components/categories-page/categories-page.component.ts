@@ -15,6 +15,7 @@ import { Observable } from 'rxjs';
   templateUrl: './categories-page.component.html',
   styleUrls: ['./categories-page.component.scss'],
 })
+
 export class CategoriesPageComponent implements OnInit {
   categories$: Observable<CategoryModel[] | null>;
   currentCategory$: Observable<CategoryModel | null>;
