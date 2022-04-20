@@ -7,7 +7,6 @@ import { ClientModel } from "src/app/shared/models";
   styleUrls: ['./client-list.component.scss']
 })
 export class ClientListComponent  {
-
   @Input() clients!: ClientModel[] | null;
   @Input() readonly = false;
   @Output() select = new EventEmitter();

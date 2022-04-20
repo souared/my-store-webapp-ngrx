@@ -8,7 +8,6 @@ import { CategoryModel } from "src/app/shared/models";
   styleUrls: ['./category-edit.component.scss']
 })
 export class CategoryEditComponent {
-
   originalCategory: CategoryModel | undefined;
   @Output() save = new EventEmitter();
   @Output() cancel = new EventEmitter();

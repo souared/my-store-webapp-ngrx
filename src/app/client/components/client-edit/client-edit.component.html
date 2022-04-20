@@ -1,1 +1,87 @@
-<p>client-edit works!</p>
+<form [formGroup]="clientForm" #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+  <div class="form-group">
+    <label for="firstName">First Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="firstName"
+      formControlName="firstName"
+      placeholder="Enter Client First Name"
+    />
+
+  </div>
+  <br />
+  <div class="form-group">
+    <label for="lastName">Last Name</label>
+    <input
+      class="form-control"
+      id="lastName"
+      formControlName="lastName"
+      placeholder="Client Last Name"
+    />
+  </div>
+  <br />
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input
+      class="form-control"
+      id="email"
+      formControlName="email"
+      placeholder="Client Email"
+    />
+  </div>
+
+  <br />
+  <div class="form-group">
+    <label for="address">Address</label>
+    <input
+      class="form-control"
+      id="address"
+      formControlName="address"
+      placeholder="Client Address"
+    />
+  </div>
+  <br />
+  <div class="form-group">
+    <label for="city">City</label>
+    <input
+      class="form-control"
+      id="city"
+      formControlName="city"
+      placeholder="Client City"
+    />
+  </div>
+  <br />
+  <div class="form-group">
+    <label for="province">Province</label>
+    <input
+      class="form-control"
+      id="province"
+      formControlName="province"
+      placeholder="Client Province"
+    />
+  </div>
+
+  <br />
+  <div class="form-group">
+    <label for="postalCode">Postal Code</label>
+    <input
+      class="form-control"
+      id="postalCode"
+      formControlName="postalCode"
+      placeholder="Client Postal Code"
+    />
+  </div>
+
+
+  <br />
+  <!-- <div class="form-group">
+    <label for="categoryActive">Active</label> &nbsp;
+    <input  type="checkbox" id="categoryActive" formControlName="categoryActive" />
+  </div> -->
+  <hr />
+  <div class="text-right">
+    <button type="submit" class="btn btn-outline-primary mb-2 me-2">Save</button>
+    <button type="button" class="btn btn-outline-primary mb-2 me-2" (click)="cancel.emit()">Cancel</button>
+  </div>
+</form>
