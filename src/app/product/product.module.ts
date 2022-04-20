@@ -7,6 +7,9 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EffectsModule } from '@ngrx/effects';
 import { ProductsApiEffects } from './product-api-effects';
+import {MatButtonModule} from '@angular/material/button';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
 
 
 
@@ -20,7 +23,10 @@ import { ProductsApiEffects } from './product-api-effects';
     CommonModule,
     ReactiveFormsModule,
     RouterModule.forChild([{ path: "products", component: ProductsPageComponent }]),
-    EffectsModule.forFeature([ProductsApiEffects])
+    EffectsModule.forFeature([ProductsApiEffects]),
+    MatButtonModule,
+    MatMenuModule,
+    MatIconModule
   ]
 })
 export class ProductModule { }

@@ -16,6 +16,7 @@ import { CategoryModule } from './category';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ClientModule } from './client';
 import { ProductModule } from './product';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ProductModule } from './product';
    CategoryModule,
    ClientModule,
    ProductModule,
-   NgbModule
+   NgbModule,
+   BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

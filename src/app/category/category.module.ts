@@ -7,6 +7,9 @@ import { EffectsModule } from '@ngrx/effects';
 import { CategoriesApiEffects } from './category-api.effects';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatButtonModule} from '@angular/material/button';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
 
 
 
@@ -21,7 +24,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     ReactiveFormsModule,
     RouterModule.forChild([{ path: "categories", component: CategoriesPageComponent }]),
-    EffectsModule.forFeature([CategoriesApiEffects])
+    EffectsModule.forFeature([CategoriesApiEffects]),
+    MatButtonModule,
+    MatMenuModule,
+    MatIconModule
   ]
 })
 export class CategoryModule { }

@@ -7,6 +7,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ClientListComponent } from './components/client-list/client-list.component';
 import { ClientEditComponent } from './components/client-edit/client-edit.component';
 import { ClientsPageComponent } from './components/clients-page/clients-page.component';
+import {MatButtonModule} from '@angular/material/button';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
 
 
 
@@ -20,7 +23,10 @@ import { ClientsPageComponent } from './components/clients-page/clients-page.com
     CommonModule,
     ReactiveFormsModule,
     RouterModule.forChild([{ path: "clients", component: ClientsPageComponent }]),
-    EffectsModule.forFeature([ClientsApiEffects])
+    EffectsModule.forFeature([ClientsApiEffects]),
+    MatButtonModule,
+    MatMenuModule,
+    MatIconModule
   ]
 })
 export class ClientModule { }

@@ -14,7 +14,22 @@
   <tbody>
     <tr *ngFor="let category of categories">
 
-      <th scope="row"> <a (click)="select.emit(category)">Edit</a> </th>
+      <th scope="row">
+
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Edit Product">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="select.emit(category)">
+            <mat-icon>edit</mat-icon>
+            <span>Edit</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>delete</mat-icon>
+            <span>Delete</span>
+          </button>
+        </mat-menu>
+      </th>
       <td > {{category.categoryName}}</td>
       <td> {{category.categoryDescription}}</td>
       <td> {{category.active}} </td>

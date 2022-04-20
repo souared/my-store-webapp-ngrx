@@ -13,7 +13,21 @@
   <tbody>
     <tr *ngFor="let product of products">
 
-      <th scope="row"> <a (click)="select.emit(product)">Edit</a> </th>
+      <th scope="row">
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Edit Product">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="select.emit(product)">
+            <mat-icon>edit</mat-icon>
+            <span>Edit</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>delete</mat-icon>
+            <span>Delete</span>
+          </button>
+        </mat-menu>
+      </th>
       <td > {{product.name}}</td>
       <td> {{product.description}}</td>
       <td> {{product.categoryID}}</td>
