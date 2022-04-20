@@ -10,7 +10,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
-import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -27,8 +26,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     EffectsModule.forFeature([CategoriesApiEffects]),
     MatButtonModule,
     MatMenuModule,
-    MatIconModule,
-    MatDialogModule
+    MatIconModule
   ]
 })
 export class CategoryModule { }

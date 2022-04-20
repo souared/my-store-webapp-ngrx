@@ -7,7 +7,6 @@ import { CategoryModel, CategoryRequiredProps } from "src/app/shared/models";
 import { Store } from '@ngrx/store';
 import {
   State,
-  selectAllcategories,
   selectActiveCategory,
 } from 'src/app/shared/state';
 import { CategoriesPageActions } from '../../actions';
@@ -27,9 +26,6 @@ export class CategoryListComponent  {
   constructor(private store: Store<State>,private modalService: NgbModal) {
     this.currentCategory$ = store.select(selectActiveCategory);
   }
-
-
-
 
 
   onCancel() {

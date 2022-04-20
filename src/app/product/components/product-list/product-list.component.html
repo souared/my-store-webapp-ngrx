@@ -1,3 +1,4 @@
+<button mat-raised-button color="primary" (click)="this.removeSelectedProduct();open(content)">New</button>
 <table class="table">
   <thead>
     <tr>
@@ -18,7 +19,7 @@
           <mat-icon>more_vert</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
-          <button mat-menu-item (click)="select.emit(product)">
+          <button mat-menu-item (click)="select.emit(product);open(content);">
             <mat-icon>edit</mat-icon>
             <span>Edit</span>
           </button>
@@ -37,3 +38,16 @@
     </tr>
   </tbody>
 </table>
+
+<ng-template #content let-modalproduct>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-product-title">Product update</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modalproduct.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+<div class="col-lg-12"><app-product-edit  [product]="currentProduct$ | async"
+  (save)="onSave($event)"
+  (cancel)="onCancel()"></app-product-edit></div>
+
+  </div>
+</ng-template>
