@@ -15,6 +15,7 @@ import { reducers } from "./shared/state";
 import { CategoryModule } from './category';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ClientModule } from './client';
+import { ProductModule } from './product';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ClientModule } from './client';
    // StoreRouterConnectingModule.forRoot(),
    CategoryModule,
    ClientModule,
+   ProductModule,
    NgbModule
   ],
   providers: [],

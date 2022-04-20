@@ -5,7 +5,7 @@ export const enter = createAction("[Products Page] Enter");
 
 export const selectProduct = createAction(
   "[Product Page] Select Product",
-  props<{ clientId: string }>()
+  props<{ productId: string }>()
 );
 
 export const clearSelectedProduct = createAction(

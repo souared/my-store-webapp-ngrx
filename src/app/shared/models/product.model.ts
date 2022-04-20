@@ -1,6 +1,6 @@
 export interface ProductModel {
-  productID: number;
-  categoryID: number;
+  productID: string;
+  categoryID: string;
   name: string;
   description: string;
   photoUrl: string;

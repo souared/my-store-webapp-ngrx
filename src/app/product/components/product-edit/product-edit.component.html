@@ -1,1 +1,45 @@
-<p>product-edit works!</p>
+<form [formGroup]="productForm" #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+  <div class="form-group">
+    <label for="productName">Product Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="name"
+      formControlName="name"
+      placeholder="Enter Category Name"
+    />
+
+  </div>
+<br/>
+  <div class="form-group">
+    <label for="categoryID">Category ID</label>
+    <input
+      type="text"
+      class="form-control"
+      id="categoryID"
+      formControlName="categoryID"
+      placeholder="Enter Category Name"
+    />
+
+  </div>
+  <br />
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea
+      class="form-control"
+      id="description"
+      formControlName="description"
+      placeholder="description"
+    ></textarea>
+  </div>
+  <br />
+  <!-- <div class="form-group">
+    <label for="categoryActive">Active</label> &nbsp;
+    <input  type="checkbox" id="categoryActive" formControlName="categoryActive" />
+  </div> -->
+  <hr />
+  <div class="text-right">
+    <button type="submit" class="btn btn-outline-primary mb-2 me-2">Save</button>
+    <button type="button" class="btn btn-outline-primary mb-2 me-2" (click)="cancel.emit()">Cancel</button>
+  </div>
+</form>

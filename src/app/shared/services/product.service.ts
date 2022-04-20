@@ -1,8 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ProductModel } from '../models';
+import { ProductModel, ProductRequiredProps } from '../models';
 
-const BASE_URL = 'https://localhost:44301/';
+const BASE_URL = 'https://localhost:44301';
 const HEADER = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
 };
@@ -23,8 +23,8 @@ export class ProductService {
     return this.http.get<ProductModel>(`${BASE_URL}/${urlSufix}/${id}`);
   }
 
-  save(client: ProductModel) {
+  save(product: ProductRequiredProps) {
     let urlSufix = 'Product/Save';
-    return this.http.post<ProductModel>(`${BASE_URL}/${urlSufix}`, client, HEADER);
+    return this.http.post<ProductModel>(`${BASE_URL}/${urlSufix}`, product, HEADER);
   }
 }
