@@ -1,15 +1,11 @@
 <h2>Categories</h2>
 <div class="row">
-  <div class="col-lg-8">
+
     <app-category-list
       [categories]="categories$ | async"
       (select)="onSelect($event)"
     ></app-category-list>
-  </div>
 
-  <div class="col-sm-4"><app-category-edit
-    [category]="currentCategory$ | async"
-    (save)="onSave($event)"
-    (cancel)="onCancel()"
-    ></app-category-edit></div>
+
+
 </div>
