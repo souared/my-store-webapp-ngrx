@@ -50,16 +50,16 @@ export class CategoriesApiEffects {
   //   )
   // );
 
-  // deleteBook$ = createEffect(() =>
-  //   this.actions$.pipe(
-  //     ofType(BooksPageActions.deleteBook),
-  //     mergeMap(action =>
-  //       this.booksService
-  //         .delete(action.bookId)
-  //         .pipe(
-  //           map(() => BooksApiActions.bookDeleted({ bookId: action.bookId }))
-  //         )
-  //     )
-  //   )
-  // );
+  deleteCategory$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(CategoriesPageActions.deleteCategory),
+      mergeMap(action =>
+        this.categoriesService
+          .delete(action.categoryId)
+          .pipe(
+            map(() => CategoriesApiActions.categoryDeleted({ categoryId: action.categoryId }))
+          )
+      )
+    )
+  );
 }

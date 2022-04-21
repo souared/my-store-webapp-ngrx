@@ -54,10 +54,10 @@ export const categoriesReducer = createReducer(
   //     categoryID: null,
   //   });
   // }
+  }),
+  on(CategoriesApiActions.categoryDeleted, (state, action) => {
+    return adapter.removeOne(action.categoryId, state);
   })
-  // on(CategoriesApiActions.bookDeleted, (state, action) => {
-  //   return adapter.removeOne(action.bookId, state);
-  // })
 );
 
 export function reducer(state: State | undefined, action: Action) {

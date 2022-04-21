@@ -48,6 +48,11 @@ export class CategoryListComponent  {
     this.store.dispatch(CategoriesPageActions.saveCategory({ category: categoryProps }));
   }
 
+  deleteCategory(category: CategoryRequiredProps | CategoryModel)
+  {
+    this.store.dispatch(CategoriesPageActions.deleteCategory({categoryId: category.categoryID}))
+  }
+
 
   closeResult = '';
 

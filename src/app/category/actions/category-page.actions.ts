@@ -22,7 +22,7 @@ export const saveCategory = createAction(
 //   props<{ bookId: string; changes: BookRequiredProps }>()
 // );
 
-// export const deleteBook = createAction(
-//   "[Books Page] Delete Book",
-//   props<{ bookId: string }>()
-// );
+export const deleteCategory = createAction(
+  "[Categories Page] Delete Category",
+  props<{ categoryId: string }>()
+);

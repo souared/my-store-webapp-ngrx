@@ -27,4 +27,9 @@ export class ClientService {
     let urlSufix = 'Client/Save';
     return this.http.post<ClientModel>(`${BASE_URL}/${urlSufix}`, client, HEADER);
   }
+
+  delete(id:number){
+    let urlSufix = 'Client/Delete';
+    return this.http.delete(`${BASE_URL}/${urlSufix}/${id}`);
+  }
 }

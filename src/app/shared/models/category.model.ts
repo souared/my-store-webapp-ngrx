@@ -12,4 +12,4 @@ export interface CategoryModel {
 
 }
 
-export type CategoryRequiredProps = Pick<CategoryModel, 'categoryName'>;
+export type CategoryRequiredProps = Pick<CategoryModel, "categoryID"|"categoryName">;

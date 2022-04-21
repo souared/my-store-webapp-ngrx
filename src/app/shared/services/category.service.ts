@@ -18,7 +18,7 @@ export class CategoryService {
     return this.http.get<CategoryModel[]>(`${BASE_URL}/${urlSufix}`);
   }
 
-  getById(id: number) {
+  getById(id: string) {
     let urlSufix = 'Category/GetById';
     return this.http.get<CategoryModel>(`${BASE_URL}/${urlSufix}/${id}`);
   }
@@ -26,5 +26,10 @@ export class CategoryService {
   save(category: CategoryRequiredProps) {
     let urlSufix = 'Category/Save';
    return this.http.post<CategoryModel>(`${BASE_URL}/${urlSufix}`, category, HEADER);
+  }
+
+  delete(id:string){
+    let urlSufix = 'Category/Delete';
+    return this.http.delete(`${BASE_URL}/${urlSufix}/${id}`);
   }
 }

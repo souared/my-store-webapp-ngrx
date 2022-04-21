@@ -27,4 +27,9 @@ export class ProductService {
     let urlSufix = 'Product/Save';
     return this.http.post<ProductModel>(`${BASE_URL}/${urlSufix}`, product, HEADER);
   }
+
+  delete(id:number){
+    let urlSufix = 'Product/Delete';
+    return this.http.delete(`${BASE_URL}/${urlSufix}/${id}`);
+  }
 }

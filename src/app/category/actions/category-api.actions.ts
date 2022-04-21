@@ -16,7 +16,7 @@ export const categorySaved = createAction(
 //   props<{ book: BookModel }>()
 // );
 
-// export const bookDeleted = createAction(
-//   "[Books API] Book Deleted",
-//   props<{ bookId: string }>()
-// );
+export const categoryDeleted = createAction(
+  "[Categories API] Category Deleted",
+  props<{ categoryId: string }>()
+);
