@@ -46,10 +46,10 @@ export const productsReducer = createReducer(
     //   ...state,
     //   productID: null,
     // });
+  }),
+  on(ProductsApiActions.productDeleted, (state, action) => {
+    return adapter.removeOne(action.productId, state);
   })
-  // on(CategoriesApiActions.bookDeleted, (state, action) => {
-  //   return adapter.removeOne(action.bookId, state);
-  // })
 );
 
 export function reducer(state: State | undefined, action: Action) {

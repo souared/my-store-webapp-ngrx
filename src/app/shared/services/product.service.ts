@@ -18,7 +18,7 @@ export class ProductService {
     return this.http.get<ProductModel[]>(`${BASE_URL}/${urlSufix}`);
   }
 
-  getById(id: number) {
+  getById(id: string) {
     let urlSufix = 'Product/GetById';
     return this.http.get<ProductModel>(`${BASE_URL}/${urlSufix}/${id}`);
   }
@@ -28,7 +28,7 @@ export class ProductService {
     return this.http.post<ProductModel>(`${BASE_URL}/${urlSufix}`, product, HEADER);
   }
 
-  delete(id:number){
+  delete(id:string){
     let urlSufix = 'Product/Delete';
     return this.http.delete(`${BASE_URL}/${urlSufix}/${id}`);
   }

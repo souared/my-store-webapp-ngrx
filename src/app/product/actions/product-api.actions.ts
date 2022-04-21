@@ -10,3 +10,9 @@ export const productSaved = createAction(
   '[Products API] Product Saved',
   props<{ product: ProductModel }>()
 );
+
+
+export const productDeleted = createAction(
+  '[Products API] Product Deleted',
+  props<{ productId: string }>()
+);

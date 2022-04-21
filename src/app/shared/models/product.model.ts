@@ -12,4 +12,4 @@ export interface ProductModel {
   active: boolean;
 }
 
-export type ProductRequiredProps = Pick<ProductModel, "name">;
+export type ProductRequiredProps = Pick<ProductModel, "productID" | "name">;

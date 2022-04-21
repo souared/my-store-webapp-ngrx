@@ -16,3 +16,8 @@ export const saveProduct = createAction(
   "[Products Page] Save Product",
   props<{ product: ProductRequiredProps }>()
 );
+
+export const deleteProduct = createAction(
+  "[Products Page] Delete Product",
+  props<{ productId: string }>()
+);

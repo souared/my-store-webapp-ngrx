@@ -50,6 +50,10 @@ export class ProductListComponent  {
     this.store.dispatch(ProductsPageActions.saveProduct({ product: productProps }));
   }
 
+  deleteProduct(product: ProductRequiredProps | ProductModel)
+  {
+    this.store.dispatch(ProductsPageActions.deleteProduct({productId: product.productID}));
+  }
 
   closeResult = '';
 
