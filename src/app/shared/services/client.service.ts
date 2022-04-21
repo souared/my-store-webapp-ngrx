@@ -18,7 +18,7 @@ export class ClientService {
     return this.http.get<ClientModel[]>(`${BASE_URL}/${urlSufix}`);
   }
 
-  getById(id: number) {
+  getById(id: string) {
     let urlSufix = 'Client/GetById';
     return this.http.get<ClientModel>(`${BASE_URL}/${urlSufix}/${id}`);
   }
@@ -28,7 +28,7 @@ export class ClientService {
     return this.http.post<ClientModel>(`${BASE_URL}/${urlSufix}`, client, HEADER);
   }
 
-  delete(id:number){
+  delete(id:string){
     let urlSufix = 'Client/Delete';
     return this.http.delete(`${BASE_URL}/${urlSufix}/${id}`);
   }

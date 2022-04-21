@@ -16,3 +16,8 @@ export const saveClient = createAction(
   "[Clients Page] Save Client",
   props<{ client: ClientRequiredProps }>()
 );
+
+export const deleteClient = createAction(
+  "[Clients Page] Delete Client",
+  props<{ clientId: string }>()
+);

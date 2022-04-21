@@ -50,16 +50,16 @@ export class ClientsApiEffects {
   //   )
   // );
 
-  // deleteBook$ = createEffect(() =>
-  //   this.actions$.pipe(
-  //     ofType(BooksPageActions.deleteBook),
-  //     mergeMap(action =>
-  //       this.booksService
-  //         .delete(action.bookId)
-  //         .pipe(
-  //           map(() => BooksApiActions.bookDeleted({ bookId: action.bookId }))
-  //         )
-  //     )
-  //   )
-  // );
+  deleteClient$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(ClientsPageActions.deleteClient),
+      mergeMap(action =>
+        this.clientsService
+          .delete(action.clientId)
+          .pipe(
+            map(() => ClientsApiActions.clientDeleted({ clientId: action.clientId }))
+          )
+      )
+    )
+  );
 }

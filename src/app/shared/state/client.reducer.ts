@@ -45,10 +45,10 @@ export const clientsReducer = createReducer(
     //   ...state,
     //   clientID: null,
     // });
+  }),
+  on(ClientsApiActions.clientDeleted, (state, action) => {
+    return adapter.removeOne(action.clientId, state);
   })
-  // on(CategoriesApiActions.bookDeleted, (state, action) => {
-  //   return adapter.removeOne(action.bookId, state);
-  // })
 );
 
 export function reducer(state: State | undefined, action: Action) {

@@ -15,4 +15,4 @@ export interface ClientModel {
   active: boolean;
 }
 
-export type ClientRequiredProps = Pick<ClientModel, "firstName" |"lastName">;
+export type ClientRequiredProps = Pick<ClientModel, "clientID" | "firstName" | "lastName">;

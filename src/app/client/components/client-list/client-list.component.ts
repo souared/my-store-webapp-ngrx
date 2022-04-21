@@ -42,7 +42,6 @@ export class ClientListComponent  {
     this.saveClient(client);
     this.removeSelectedClient();
     this.modalService.dismissAll();
-    //this.store.dispatch(ClientsPageActions.enter());
   }
 
   removeSelectedClient() {
@@ -53,6 +52,10 @@ export class ClientListComponent  {
     this.store.dispatch(ClientsPageActions.saveClient({ client: clientProps }));
   }
 
+  deleteClient(client: ClientRequiredProps | ClientModel)
+  {
+    this.store.dispatch(ClientsPageActions.deleteClient({clientId: client.clientID}))
+  }
 
   closeResult = '';
 

@@ -10,3 +10,9 @@ export const clientSaved = createAction(
   '[Clients API] Client Saved',
   props<{ client: ClientModel }>()
 );
+
+
+export const clientDeleted = createAction(
+  '[Clients API] Client Deleted',
+  props<{ clientId: string }>()
+);
