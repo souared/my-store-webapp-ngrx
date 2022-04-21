@@ -24,6 +24,7 @@ export class ProductService {
   }
 
   save(product: ProductRequiredProps) {
+    console.log(product);
     let urlSufix = 'Product/Save';
     return this.http.post<ProductModel>(`${BASE_URL}/${urlSufix}`, product, HEADER);
   }
