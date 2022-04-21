@@ -27,9 +27,15 @@ export class ClientListComponent  {
 
 
   currentClient$: Observable<ClientModel | null>;
+  clientIDToDelete: string = "" as string;
 
   constructor(private store: Store<State>,private modalService: NgbModal ) {
     this.currentClient$ = store.select(selectActiveClient);
+    this.currentClient$.subscribe((selectedClient) => {
+      if(selectedClient!=null)
+      {
+      this.clientIDToDelete = selectedClient.clientID;
+    }});
   }
 
 
@@ -52,9 +58,11 @@ export class ClientListComponent  {
     this.store.dispatch(ClientsPageActions.saveClient({ client: clientProps }));
   }
 
-  deleteClient(client: ClientRequiredProps | ClientModel)
+  deleteClient(clientId: string)
   {
-    this.store.dispatch(ClientsPageActions.deleteClient({clientId: client.clientID}))
+    this.store.dispatch(ClientsPageActions.deleteClient({clientId: clientId}));
+    this.removeSelectedClient();
+    this.modalService.dismissAll();
   }
 
   closeResult = '';

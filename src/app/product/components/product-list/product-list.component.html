@@ -1,4 +1,10 @@
-<button mat-raised-button color="primary" (click)="this.removeSelectedProduct();open(content)">New</button>
+<button
+  mat-raised-button
+  color="primary"
+  (click)="this.removeSelectedProduct(); open(content)"
+>
+  New
+</button>
 <table class="table">
   <thead>
     <tr>
@@ -13,28 +19,34 @@
   </thead>
   <tbody>
     <tr *ngFor="let product of products">
-
       <th scope="row">
-        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Edit Product">
+        <button
+          mat-icon-button
+          [matMenuTriggerFor]="menu"
+          aria-label="Edit Product"
+        >
           <mat-icon>more_vert</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
-          <button mat-menu-item (click)="select.emit(product);open(content);">
+          <button mat-menu-item (click)="select.emit(product); open(content)">
             <mat-icon>edit</mat-icon>
             <span>Edit</span>
           </button>
-          <button mat-menu-item (click)="deleteProduct(product)">
+          <button
+            mat-menu-item
+            (click)="select.emit(product); open(deleteContent)"
+          >
             <mat-icon>delete</mat-icon>
             <span>Delete</span>
           </button>
         </mat-menu>
       </th>
-      <td > {{product.name}}</td>
-      <td> {{product.description}}</td>
-      <td> {{product.categoryID}}</td>
-      <td> {{product.active}} </td>
-      <td> {{product.createdOn|date:'MMMM dd, y'}} </td>
-      <td> {{product.updatedOn|date:'MMMM dd, y'}} </td>
+      <td>{{ product.name }}</td>
+      <td>{{ product.description }}</td>
+      <td>{{ product.categoryID }}</td>
+      <td>{{ product.active }}</td>
+      <td>{{ product.createdOn | date: "MMMM dd, y" }}</td>
+      <td>{{ product.updatedOn | date: "MMMM dd, y" }}</td>
     </tr>
   </tbody>
 </table>
@@ -42,12 +54,57 @@
 <ng-template #content let-modalproduct>
   <div class="modal-header">
     <h4 class="modal-title" id="modal-product-title">Product update</h4>
-    <button type="button" class="btn-close" aria-label="Close" (click)="modalproduct.dismiss('Cross click')"></button>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modalproduct.dismiss('Cross click')"
+    ></button>
   </div>
   <div class="modal-body">
-<div class="col-lg-12"><app-product-edit  [product]="currentProduct$ | async"
-  (save)="onSave($event)"
-  (cancel)="onCancel()"></app-product-edit></div>
+    <div class="col-lg-12">
+      <app-product-edit
+        [product]="currentProduct$ | async"
+        (save)="onSave($event)"
+        (cancel)="onCancel()"
+      ></app-product-edit>
+    </div>
+  </div>
+</ng-template>
 
+<ng-template #deleteContent let-modalproductDelete>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-product-title">Product Delete</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modalproductDelete.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <div class="col-lg-12">Are you sure you want to remove this Product?</div>
+    <hr />
+
+    <div class="row">
+      <button
+        type="button"
+        mat-raised-button
+        color="warn"
+        class="col-lg-2"
+        (click)="deleteProduct(productIDToDelete)"
+      >
+        Yes
+      </button>
+      <div class="col-lg-8"></div>
+      <button
+        type="button"
+        mat-raised-button
+        (click)="onCancel()"
+        class="col-lg-2"
+      >
+        Cancel
+      </button>
+    </div>
   </div>
 </ng-template>

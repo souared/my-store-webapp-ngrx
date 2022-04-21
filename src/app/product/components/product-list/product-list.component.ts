@@ -2,39 +2,38 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import { ProductModel, ProductRequiredProps } from "src/app/shared/models";
+import { ProductModel, ProductRequiredProps } from 'src/app/shared/models';
 
 import { Store } from '@ngrx/store';
-import {
-  State,
-  selectActiveProduct,
-} from 'src/app/shared/state';
+import { State, selectActiveProduct } from 'src/app/shared/state';
 import { ProductsPageActions } from '../../actions';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.scss']
+  styleUrls: ['./product-list.component.scss'],
 })
-export class ProductListComponent  {
-
+export class ProductListComponent {
   @Input() products!: ProductModel[] | null;
   @Input() readonly = false;
   @Output() select = new EventEmitter();
 
   currentProduct$: Observable<ProductModel | null>;
+   productIDToDelete: string = "" as string;
 
-  constructor(private store: Store<State>,private modalService: NgbModal) {
+  constructor(private store: Store<State>, private modalService: NgbModal) {
     this.currentProduct$ = store.select(selectActiveProduct);
+    this.currentProduct$.subscribe((selectedProd) => {
+      if(selectedProd!=null)
+      {
+      this.productIDToDelete = selectedProd.productID;
+    }});
   }
-
-
 
   onCancel() {
     this.removeSelectedProduct();
     this.modalService.dismissAll();
   }
-
 
   onSave(product: ProductRequiredProps | ProductModel) {
     this.saveProduct(product);
@@ -47,22 +46,33 @@ export class ProductListComponent  {
   }
 
   saveProduct(productProps: ProductRequiredProps) {
-    this.store.dispatch(ProductsPageActions.saveProduct({ product: productProps }));
+    this.store.dispatch(
+      ProductsPageActions.saveProduct({ product: productProps })
+    );
   }
 
-  deleteProduct(product: ProductRequiredProps | ProductModel)
-  {
-    this.store.dispatch(ProductsPageActions.deleteProduct({productId: product.productID}));
+  deleteProduct(productId: string) {
+    this.store.dispatch(
+      ProductsPageActions.deleteProduct({ productId: productId })
+    );
+
+    this.removeSelectedProduct();
+    this.modalService.dismissAll();
   }
 
   closeResult = '';
 
-  open(content:any) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-product-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
+  open(content: any) {
+    this.modalService
+      .open(content, { ariaLabelledBy: 'modal-product-title' })
+      .result.then(
+        (result) => {
+          this.closeResult = `Closed with: ${result}`;
+        },
+        (reason) => {
+          this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+        }
+      );
   }
 
   private getDismissReason(reason: any): string {
@@ -74,5 +84,4 @@ export class ProductListComponent  {
       return `with: ${reason}`;
     }
   }
-
 }

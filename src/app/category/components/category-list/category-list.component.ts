@@ -22,9 +22,16 @@ export class CategoryListComponent  {
   @Output() select = new EventEmitter();
 
   currentCategory$: Observable<CategoryModel | null>;
+  categoryIDToDelete: string = "" as string;
+
 
   constructor(private store: Store<State>,private modalService: NgbModal) {
     this.currentCategory$ = store.select(selectActiveCategory);
+    this.currentCategory$.subscribe((selectedCategory) => {
+      if(selectedCategory!=null)
+      {
+      this.categoryIDToDelete = selectedCategory.categoryID;
+    }});
   }
 
 
@@ -48,9 +55,11 @@ export class CategoryListComponent  {
     this.store.dispatch(CategoriesPageActions.saveCategory({ category: categoryProps }));
   }
 
-  deleteCategory(category: CategoryRequiredProps | CategoryModel)
+  deleteCategory(categoryID: string)
   {
-    this.store.dispatch(CategoriesPageActions.deleteCategory({categoryId: category.categoryID}))
+    this.store.dispatch(CategoriesPageActions.deleteCategory({categoryId: categoryID}));
+    this.removeSelectedCategory();
+    this.modalService.dismissAll();
   }
 
 

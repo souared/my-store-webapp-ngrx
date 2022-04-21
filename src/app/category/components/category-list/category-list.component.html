@@ -25,7 +25,7 @@
             <mat-icon>edit</mat-icon>
             <span>Edit</span>
           </button>
-          <button mat-menu-item (click)="deleteCategory(category)">
+          <button mat-menu-item (click)="select.emit(category); open(deleteContent);">
             <mat-icon>delete</mat-icon>
             <span>Delete</span>
           </button>
@@ -58,3 +58,39 @@
 </ng-template>
 
 
+<ng-template #deleteContent let-modalCategoryDelete>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-product-title">Category Delete</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modalCategoryDelete.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <div class="col-lg-12">Are you sure you want to remove this Category?</div>
+    <hr />
+
+    <div class="row">
+      <button
+        type="button"
+        mat-raised-button
+        color="warn"
+        class="col-lg-2"
+        (click)="deleteCategory(categoryIDToDelete)"
+      >
+        Yes
+      </button>
+      <div class="col-lg-8"></div>
+      <button
+        type="button"
+        mat-raised-button
+        (click)="onCancel()"
+        class="col-lg-2"
+      >
+        Cancel
+      </button>
+    </div>
+  </div>
+</ng-template>
