@@ -40,10 +40,12 @@ export const productsReducer = createReducer(
     return adapter.setAll(action.products, state);
   }),
   on(ProductsApiActions.productSaved, (state, action) => {
-    return adapter.addOne(action.product, {
-      ...state,
-      productID: null,
-    });
+
+    return adapter.upsertOne(action.product,state);
+    // return adapter.addOne(action.product, {
+    //   ...state,
+    //   productID: null,
+    // });
   })
   // on(CategoriesApiActions.bookDeleted, (state, action) => {
   //   return adapter.removeOne(action.bookId, state);

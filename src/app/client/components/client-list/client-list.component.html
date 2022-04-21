@@ -1,3 +1,4 @@
+<button mat-raised-button color="primary" (click)="this.removeSelectedClient();open(content)">New</button>
 <table class="table">
   <thead>
     <tr>
@@ -17,7 +18,7 @@
           <mat-icon>more_vert</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
-          <button mat-menu-item (click)="select.emit(client)">
+          <button mat-menu-item (click)="select.emit(client);open(content);">
             <mat-icon>edit</mat-icon>
             <span>Edit</span>
           </button>
@@ -35,3 +36,18 @@
     </tr>
   </tbody>
 </table>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Client update</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+
+<div class="col-sm-12"><app-client-edit  [client]="currentClient$ | async"
+  (save)="onSave($event)"
+  (cancel)="onCancel()"></app-client-edit></div>
+
+</div>
+
+</ng-template>

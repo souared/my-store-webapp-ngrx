@@ -40,10 +40,11 @@ export const clientsReducer = createReducer(
     return adapter.setAll(action.clients, state);
   }),
   on(ClientsApiActions.clientSaved, (state, action) => {
-    return adapter.addOne(action.client, {
-      ...state,
-      clientID: null,
-    });
+    return adapter.upsertOne(action.client,state);
+    // return adapter.addOne(action.client, {
+    //   ...state,
+    //   clientID: null,
+    // });
   })
   // on(CategoriesApiActions.bookDeleted, (state, action) => {
   //   return adapter.removeOne(action.bookId, state);

@@ -40,10 +40,20 @@ export const categoriesReducer = createReducer(
     return adapter.setAll(action.categories, state);
   }),
   on(CategoriesApiActions.categorySaved, (state, action) => {
-    return adapter.addOne(action.category, {
-      ...state,
-      categoryID: null,
-    });
+
+    return adapter.upsertOne(action.category,state);
+  //   if(action.category.categoryID ==="")
+  //   {
+  //   return adapter.addOne(action.category, {
+  //     ...state,
+  //     categoryID: null,
+  //   });
+  // }else{
+  //   return adapter.updateOne({id:action.category.categoryID, changes:action.category}, {
+  //     ...state,
+  //     categoryID: null,
+  //   });
+  // }
   })
   // on(CategoriesApiActions.bookDeleted, (state, action) => {
   //   return adapter.removeOne(action.bookId, state);
