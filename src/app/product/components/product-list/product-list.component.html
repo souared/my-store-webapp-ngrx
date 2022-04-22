@@ -11,7 +11,7 @@
       <th scope="col"></th>
       <th scope="col">Name</th>
       <th scope="col">Description</th>
-      <th scope="col">categoryID</th>
+      <th scope="col">Category</th>
       <th scope="col">Active</th>
       <th scope="col">Created On</th>
       <th scope="col">Updated On</th>
@@ -43,8 +43,10 @@
       </th>
       <td>{{ product.name }}</td>
       <td>{{ product.description }}</td>
-      <td>{{ product.categoryID }}</td>
-      <td>{{ product.active }}</td>
+      <td>{{ product.category }}</td>
+      <td>
+        <mat-checkbox  [checked]="product.active" [disabled]="true"></mat-checkbox>
+      </td>
       <td>{{ product.createdOn | date: "MMMM dd, y" }}</td>
       <td>{{ product.updatedOn | date: "MMMM dd, y" }}</td>
     </tr>

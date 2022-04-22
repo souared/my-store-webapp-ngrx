@@ -33,7 +33,10 @@
       </th>
       <td > {{category.categoryName}}</td>
       <td> {{category.categoryDescription}}</td>
-      <td> {{category.active}} </td>
+      <td>
+        <mat-checkbox  [checked]="category.active" [disabled]="true"></mat-checkbox>
+
+      </td>
       <td> {{category.createdOn|date:'MMMM dd, y'}} </td>
       <td> {{category.updatedOn|date:'MMMM dd, y'}} </td>
     </tr>

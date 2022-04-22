@@ -3,6 +3,8 @@ import { CategoryRequiredProps } from 'src/app/shared/models';
 
 export const enter = createAction('[Categories Page] Enter');
 
+export const getCategories = createAction('[Categories Page] Get categories from store');
+
 export const selectCategory = createAction(
   '[Category Page] Select Category',
   props<{ categoryID: string }>()

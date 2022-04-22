@@ -36,6 +36,9 @@ export const categoriesReducer = createReducer(
       categoryID: action.categoryID,
     };
   }),
+  on(CategoriesPageActions.getCategories,(state,action)=>{
+    return {...state,action};
+  }),
   on(CategoriesApiActions.categoriesLoaded, (state, action) => {
     return adapter.setAll(action.categories, state);
   }),

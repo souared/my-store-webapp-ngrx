@@ -10,7 +10,7 @@ import { ProductsApiEffects } from './product-api-effects';
 import {MatButtonModule} from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
-import {MatSelectModule} from '@angular/material/select';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 
@@ -28,7 +28,7 @@ import {MatSelectModule} from '@angular/material/select';
     MatButtonModule,
     MatMenuModule,
     MatIconModule,
-    MatSelectModule
+    MatCheckboxModule
   ]
 })
 export class ProductModule { }

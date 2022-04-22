@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 
@@ -26,7 +27,8 @@ import {MatIconModule} from '@angular/material/icon';
     EffectsModule.forFeature([CategoriesApiEffects]),
     MatButtonModule,
     MatMenuModule,
-    MatIconModule
+    MatIconModule,
+    MatCheckboxModule
   ]
 })
 export class CategoryModule { }

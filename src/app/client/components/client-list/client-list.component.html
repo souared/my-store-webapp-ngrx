@@ -30,7 +30,10 @@
         </th>
       <td > {{client.firstName}}</td>
       <td> {{client.lastName}}</td>
-      <td> {{client.active}} </td>
+      <td>
+        <mat-checkbox  [checked]="client.active" [disabled]="true"></mat-checkbox>
+
+      </td>
       <td> {{client.createdOn|date:'MMMM dd, y'}} </td>
       <td> {{client.updatedOn|date:'MMMM dd, y'}} </td>
     </tr>
