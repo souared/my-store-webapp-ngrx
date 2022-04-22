@@ -15,7 +15,8 @@ export class CategoryEditComponent {
 
   categoryForm = new FormGroup({
     categoryName: new FormControl(""),
-    categoryDescription: new FormControl("")
+    categoryDescription: new FormControl(""),
+    active: new FormControl(false)
   });
 
   @Input() set category(category: CategoryModel|null) {
@@ -25,7 +26,8 @@ export class CategoryEditComponent {
     if (category) {
       this.categoryForm.setValue({
         categoryName: category.categoryName,
-        categoryDescription: category.categoryDescription
+        categoryDescription: category.categoryDescription,
+        active: category.active
       });
 
       this.originalCategory = category;

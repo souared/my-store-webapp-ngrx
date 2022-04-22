@@ -32,6 +32,7 @@ export class ProductEditComponent {
     name: new FormControl(''),
     categoryID: new FormControl(''),
     description: new FormControl(''),
+    active: new FormControl(false)
   });
 
   @Input() set product(product: ProductModel | null) {
@@ -43,6 +44,7 @@ export class ProductEditComponent {
         name: product.name,
         categoryID: product.categoryID,
         description: product.description,
+        active:product.active
       });
 
       this.originalProduct = product;

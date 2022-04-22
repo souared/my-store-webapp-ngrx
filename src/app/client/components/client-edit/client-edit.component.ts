@@ -20,6 +20,7 @@ export class ClientEditComponent {
     city: new FormControl(""),
     province: new FormControl(""),
     postalCode: new FormControl(""),
+    active: new FormControl(false)
   });
 
   @Input() set client(client: ClientModel | null) {
@@ -35,6 +36,7 @@ export class ClientEditComponent {
         city: client.city,
         province: client.province,
         postalCode: client.postalCode,
+        active: client.active
       });
 
       this.originalClient = client;
