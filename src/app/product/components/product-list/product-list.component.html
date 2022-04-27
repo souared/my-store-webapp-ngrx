@@ -12,6 +12,9 @@
       <th scope="col">Name</th>
       <th scope="col">Description</th>
       <th scope="col">Category</th>
+      <th scope="col">Available Qty</th>
+      <th scope="col">Unit Cost</th>
+      <th scope="col">Listing Price</th>
       <th scope="col">Active</th>
       <th scope="col">Created On</th>
       <th scope="col">Updated On</th>
@@ -44,6 +47,9 @@
       <td>{{ product.name }}</td>
       <td>{{ product.description }}</td>
       <td>{{ product.category }}</td>
+      <td>{{ product.stockQty }}</td>
+      <td>{{ product.unitCost }}</td>
+      <td>{{ product.listingPrice }}</td>
       <td>
         <mat-checkbox  [checked]="product.active" [disabled]="true"></mat-checkbox>
       </td>
