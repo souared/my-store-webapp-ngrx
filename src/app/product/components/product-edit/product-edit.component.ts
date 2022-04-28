@@ -32,6 +32,9 @@ export class ProductEditComponent {
     name: new FormControl(''),
     categoryID: new FormControl(''),
     description: new FormControl(''),
+    stockQty: new FormControl(0),
+    unitCost: new FormControl(0.00),
+    listingPrice: new FormControl(0.00),
     active: new FormControl(false)
   });
 
@@ -44,6 +47,9 @@ export class ProductEditComponent {
         name: product.name,
         categoryID: product.categoryID,
         description: product.description,
+        stockQty:product.stockQty,
+        unitCost: product.unitCost,
+        listingPrice: product.listingPrice,
         active:product.active
       });
 

@@ -1,6 +1,3 @@
-
-
-
 <form [formGroup]="productForm" #f="ngForm" (ngSubmit)="onSubmit(f.value)">
   <div class="form-group">
     <label for="productName">Product Name</label>
@@ -11,9 +8,8 @@
       formControlName="name"
       placeholder="Enter Category Name"
     />
-
   </div>
-<br/>
+  <br />
   <!-- <div class="form-group">
     <label for="categoryID">Category ID</label>
     <input
@@ -29,12 +25,47 @@
     <label for="categoryID">Category</label>
     <select class="form-select" formControlName="categoryID">
       <option value="">Choose Category</option>
-      <option *ngFor="let option of categories$ | async" [ngValue]="option.categoryID">
-        {{option.categoryName}}
-        </option>
-   </select>
+      <option
+        *ngFor="let option of categories$ | async"
+        [ngValue]="option.categoryID"
+      >
+        {{ option.categoryName }}
+      </option>
+    </select>
   </div>
-
+  <br />
+  <div class="form-group">
+    <label for="stockQty">Available Qty</label>
+    <input
+      type="number"
+      class="form-control"
+      id="stockQty"
+      formControlName="stockQty"
+      placeholder="Enter Stock Qty"
+    />
+  </div>
+  <br />
+  <div class="form-group">
+    <label for="unitCost">Unit Cost</label>
+    <input
+      type="number"
+      class="form-control"
+      id="unitCost"
+      formControlName="unitCost"
+      placeholder="Enter Unit Cost"
+    />
+  </div>
+  <br />
+  <div class="form-group">
+    <label for="listingPrice">Listing Price</label>
+    <input
+      type="number"
+      class="form-control"
+      id="listingPrice"
+      formControlName="listingPrice"
+      placeholder="Enter Listing Price"
+    />
+  </div>
   <br />
   <div class="form-group">
     <label for="description">Description</label>
@@ -52,8 +83,17 @@
   </div>
   <hr />
   <div class="row">
-    <button type="submit" mat-raised-button color="primary" class="col-lg-2">Save</button>
+    <button type="submit" mat-raised-button color="primary" class="col-lg-2">
+      Save
+    </button>
     <div class="col-lg-8"></div>
-    <button type="button" mat-raised-button (click)="cancel.emit()" class="col-lg-2">Cancel</button>
+    <button
+      type="button"
+      mat-raised-button
+      (click)="cancel.emit()"
+      class="col-lg-2"
+    >
+      Cancel
+    </button>
   </div>
 </form>
