@@ -3,22 +3,24 @@ import { CommonModule } from '@angular/common';
 import { OrderListComponent } from './components/order-list/order-list.component';
 import { OrderDetailsComponent } from './components/order-details/order-details.component';
 import { EffectsModule } from '@ngrx/effects';
-import { ClientsApiEffects } from '../client/client-api-effects';
+import { OrdersApiEffects } from '../order/order-api-effects';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { OrderPageComponent } from './components/order-page/order-page.component';
 
 
 
 @NgModule({
   declarations: [
     OrderListComponent,
-    OrderDetailsComponent
+    OrderDetailsComponent,
+    OrderPageComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    RouterModule.forChild([{ path: "orders", component: OrderListComponent }]),
-    EffectsModule.forFeature([ClientsApiEffects]),
+    RouterModule.forChild([{ path: "orders", component: OrderPageComponent }]),
+    EffectsModule.forFeature([OrdersApiEffects]),
   ]
 })
 export class OrderModule { }

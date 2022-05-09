@@ -1,8 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-
-
 import { Observable } from 'rxjs';
-
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { ClientModel, ClientRequiredProps } from "src/app/shared/models";
 
@@ -12,7 +9,6 @@ import {
   selectActiveClient,
 } from 'src/app/shared/state';
 import { ClientsPageActions } from '../../actions';
-import {  Router } from '@angular/router';
 
 @Component({
   selector: 'app-client-list',
