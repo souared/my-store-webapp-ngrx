@@ -1,4 +1,4 @@
-import { ActionReducerMap, createSelector, MetaReducer } from '@ngrx/store';
+import { ActionReducerMap, createSelector } from '@ngrx/store';
 import * as fromCategories from './category.reducer';
 import * as fromClients from './client.reducer';
 import * as fromProducts from './product.reducer';
