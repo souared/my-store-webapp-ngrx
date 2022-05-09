@@ -2,17 +2,20 @@ import { ActionReducerMap, createSelector, MetaReducer } from '@ngrx/store';
 import * as fromCategories from './category.reducer';
 import * as fromClients from './client.reducer';
 import * as fromProducts from './product.reducer';
+import * as fromOrders from './order.reduce';
 
 export interface State {
   categories: fromCategories.State;
-clients: fromClients.State;
-products: fromProducts.State;
+  clients: fromClients.State;
+  products: fromProducts.State;
+  orders:fromOrders.State;
 }
 
 export const reducers: ActionReducerMap<State> = {
   categories: fromCategories.reducer,
   clients:fromClients.reducer,
-  products: fromProducts.reducer
+  products: fromProducts.reducer,
+  orders: fromOrders.reducer
 };
 
 /**
@@ -55,3 +58,17 @@ export const selectActiveCategory = createSelector(
     selectProductsState,
     fromProducts.selectActiveProduct
   );
+
+
+  /**
+ * Order Selectors
+ */
+ export const selectOrdersState = (state: State) => state.orders;
+ export const selectAllorders = createSelector(
+   selectOrdersState,
+   fromOrders.selectAll
+ );
+ export const selectActiveOrder = createSelector(
+   selectOrdersState,
+   fromOrders.selectActiveOrder
+ );

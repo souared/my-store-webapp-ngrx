@@ -16,6 +16,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ClientModule } from './client';
 import { ProductModule } from './product';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { OrderModule } from './order/order.module';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
    CategoryModule,
    ClientModule,
    ProductModule,
+   OrderModule,
    NgbModule,
    BrowserAnimationsModule
   ],
