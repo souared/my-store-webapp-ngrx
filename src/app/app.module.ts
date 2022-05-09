@@ -17,6 +17,7 @@ import { ClientModule } from './client';
 import { ProductModule } from './product';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OrderModule } from './order/order.module';
+import { AuthenticationModule } from './authentication/authentication.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { OrderModule } from './order/order.module';
     HttpClientModule,
     RouterModule.forRoot([
     //  { path: "", pathMatch: "full", redirectTo: "/categories" },
-      { path: "", pathMatch: "full", redirectTo: "/clients" }
+      { path: "", pathMatch: "full", redirectTo: "/login" }
     ]),
      StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
@@ -38,6 +39,7 @@ import { OrderModule } from './order/order.module';
    ClientModule,
    ProductModule,
    OrderModule,
+   AuthenticationModule,
    NgbModule,
    BrowserAnimationsModule
   ],
