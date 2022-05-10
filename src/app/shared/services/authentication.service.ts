@@ -9,22 +9,22 @@ import { AuthenticationModel } from '../models';
 export class AuthenticationService {
 
   constructor() {}
-  getAll(): Observable<AuthenticationModel[]> {
+  getAll(): Observable<AuthenticationModel> {
     var currentUser = JSON.parse(
       localStorage.getItem('currentUser') || '{}'
-    ) as AuthenticationModel[];
+    ) as AuthenticationModel;
     return of(currentUser);
   }
 
   save(user: AuthenticationModel)
   {
-    var users :AuthenticationModel[]=[];
-    users.push(user);
-    const jsonData = JSON.stringify(users);
+    // var users :AuthenticationModel[]=[];
+    // users.push(user);
+    const jsonData = JSON.stringify(user);
 
     //save the whole shopping cart
     localStorage.setItem('currentUser', jsonData);
-    users.pop();
+    //users.pop();
     return of(user);
   }
 

@@ -15,14 +15,14 @@ export class AppComponent {
   title = 'my-store-webapp-ngrx';
 
   loggedIn: boolean = false;
-  authUsers$: Observable<AuthenticationModel[] | null>;
+  authUsers$: Observable<AuthenticationModel | null>;
   constructor(private store: Store<State>, private router: Router) {
-    this.authUsers$ = store.select(selectAllAuthentications);
+    this.authUsers$ = store.select(selectActiveAuthentication);
   }
   ngOnInit(): void {
-    this.store.dispatch(AuthenticationsPageActions.enter());
+    this.store.dispatch(AuthenticationsPageActions.selectAuthentication({userId: '1'}));
     this.authUsers$.subscribe((c) => {
-      if (c != null && c.length >0 ) {
+      if (c != null ) {
         this.loggedIn = true;
         //navigate to dashboard
         this.router.navigate(['clients']);

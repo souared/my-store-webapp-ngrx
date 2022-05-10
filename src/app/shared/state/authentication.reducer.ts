@@ -36,7 +36,7 @@ export const authenticationReducer = createReducer(
   }),
 
   on(AuthenticationsApiActions.authenticationLoaded, (state, action) => {
-     return adapter.setAll(action.authentications, state);
+     return adapter.setOne(action.authentication, state);
 
   }),
   on(AuthenticationsApiActions.authenticationSaved, (state, action) => {

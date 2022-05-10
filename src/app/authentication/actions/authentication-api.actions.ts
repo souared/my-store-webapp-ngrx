@@ -3,7 +3,7 @@ import { AuthenticationModel } from 'src/app/shared/models';
 
 export const authenticationLoaded = createAction(
   '[Authentication Storage] User Loaded Success',
-  props<{ authentications: AuthenticationModel[] }>()
+  props<{ authentication: AuthenticationModel }>()
 );
 
 export const authenticationSaved = createAction(

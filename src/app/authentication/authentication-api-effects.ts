@@ -13,13 +13,13 @@ export class UserAuthenticationsApiEffects {
 
   loadAuthentications$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(AuthenticationsPageActions.enter),
+      ofType(AuthenticationsPageActions.selectAuthentication),
       exhaustMap(() =>
         this.authenticationService
           .getAll()
           .pipe(
             map((authentications) =>
-              AuthenticationsApiActions.authenticationLoaded({authentications :authentications})
+              AuthenticationsApiActions.authenticationLoaded({authentication :authentications})
             )
           )
       )
