@@ -18,8 +18,8 @@ export class UserAuthenticationsApiEffects {
         this.authenticationService
           .getAll()
           .pipe(
-            map((authentication) =>
-              AuthenticationsApiActions.authenticationLoaded({authentication :authentication})
+            map((authentications) =>
+              AuthenticationsApiActions.authenticationLoaded({authentications :authentications})
             )
           )
       )

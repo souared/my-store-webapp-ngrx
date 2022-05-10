@@ -5,7 +5,7 @@ export const enter = createAction("[Authentication Page] Enter");
 
 export const selectAuthentication = createAction(
   "[Authentication Page] Select Authentication",
-  props<{ id: string }>()
+  props<{ userId: string }>()
 );
 
 export const clearSelectedAuthentication = createAction(

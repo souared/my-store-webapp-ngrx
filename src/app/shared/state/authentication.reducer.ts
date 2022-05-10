@@ -31,16 +31,13 @@ export const authenticationReducer = createReducer(
   on(AuthenticationsPageActions.selectAuthentication, (state, action) => {
     return {
       ...state,
-      id: action.id,
+      id: action.userId,
     };
   }),
 
   on(AuthenticationsApiActions.authenticationLoaded, (state, action) => {
-    // return adapter.setAll(action.authentication, state);
-    return {
-      ...state,
-      authentication: action.authentication,
-    };
+     return adapter.setAll(action.authentications, state);
+
   }),
   on(AuthenticationsApiActions.authenticationSaved, (state, action) => {
 

@@ -3,19 +3,22 @@ import * as fromCategories from './category.reducer';
 import * as fromClients from './client.reducer';
 import * as fromProducts from './product.reducer';
 import * as fromOrders from './order.reduce';
+import * as fromAuthentication from './authentication.reducer';
 
 export interface State {
   categories: fromCategories.State;
   clients: fromClients.State;
   products: fromProducts.State;
   orders:fromOrders.State;
+  authentications: fromAuthentication.State;
 }
 
 export const reducers: ActionReducerMap<State> = {
   categories: fromCategories.reducer,
   clients:fromClients.reducer,
   products: fromProducts.reducer,
-  orders: fromOrders.reducer
+  orders: fromOrders.reducer,
+  authentications: fromAuthentication.reducer
 };
 
 /**
@@ -72,3 +75,19 @@ export const selectActiveCategory = createSelector(
    selectOrdersState,
    fromOrders.selectActiveOrder
  );
+
+
+
+ /**
+ *
+ * Authentication Selectors
+ */
+export const selectAuthenticationsState = (state: State) => state.authentications;
+export const selectAllAuthentications = createSelector(
+  selectAuthenticationsState,
+  fromAuthentication.selectAll
+);
+export const selectActiveAuthentication = createSelector(
+  selectAuthenticationsState,
+  fromAuthentication.selectActiveAuthentication
+);

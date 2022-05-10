@@ -1,11 +1,11 @@
 
 <div class="card" style="width: 30rem;">
   <div class="card-body">
-<form>
+<form [formGroup]="loginForm" #login="ngForm" (ngSubmit)="onSubmit()">
 
   <div class="form-group">
     <label for="email">Email</label>
-    <input
+    <input type="email"
       class="form-control"
       id="email"
       formControlName="email"
@@ -17,7 +17,7 @@
 
   <div class="form-group">
     <label for="password">Password</label>
-    <input
+    <input type="password"
       class="form-control"
       id="password"
       formControlName="password"

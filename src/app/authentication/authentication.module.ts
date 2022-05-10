@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import {MatButtonModule} from '@angular/material/button';
 import { EffectsModule } from '@ngrx/effects';
 import { UserAuthenticationsApiEffects } from './authentication-api-effects';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -14,6 +15,7 @@ import { UserAuthenticationsApiEffects } from './authentication-api-effects';
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     RouterModule.forChild([{ path: "login", component: AuthenticationPageComponent }]),
     EffectsModule.forFeature([UserAuthenticationsApiEffects]),
     MatButtonModule,
