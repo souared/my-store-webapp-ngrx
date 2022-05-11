@@ -1,1 +1,19 @@
-<p>order-details works!</p>
+<p>order Summary</p>
+Order ID: {{ordr.orderID}}<br/>
+Order Date: {{ordr.orderDate}}<br/>
+Order Status: {{ordr.orderStatus}}<br/>
+
+
+<hr>
+
+Client ID: {{ordr.client?.clientID}}<br/>
+Name: {{ordr.client?.firstName}} {{ordr.client?.lastName}}<br/>
+Email: {{ordr.client?.email}}<br/>
+Address: {{ordr.client?.address}}<br/>
+City: {{ordr.client?.city}}<br/>
+Province: {{ordr.client?.province}}<br/>
+Postal Code: {{ordr.client?.postalCode}}<br/>
+
+
+<hr>
+order Details

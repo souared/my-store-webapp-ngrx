@@ -5,6 +5,10 @@ export const ordersLoaded = createAction(
   '[Orders API] Orders Loaded Success',
   props<{ orders: OrderModel[] }>()
 );
+export const singleOrderLoaded = createAction(
+  '[Orders API] Single Order Loaded Success',
+  props<{ order: OrderModel }>()
+);
 
 export const orderSaved = createAction(
   '[Orders API] Order Saved',

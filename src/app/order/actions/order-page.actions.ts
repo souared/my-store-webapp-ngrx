@@ -8,6 +8,11 @@ export const selectOrder = createAction(
   props<{ orderId: string }>()
 );
 
+export const LoadSingleOrder = createAction(
+  "[Order Page] Load Single Order",
+  props<{ orderId: string }>()
+);
+
 export const clearSelectedOrder = createAction(
   "[Orders Page] Clear Selected Order"
 );

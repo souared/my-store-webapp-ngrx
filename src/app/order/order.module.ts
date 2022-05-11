@@ -7,20 +7,26 @@ import { OrdersApiEffects } from '../order/order-api-effects';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { OrderPageComponent } from './components/order-page/order-page.component';
-
-
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
-  declarations: [
-    OrderListComponent,
-    OrderDetailsComponent,
-    OrderPageComponent
-  ],
+  declarations: [OrderListComponent, OrderDetailsComponent, OrderPageComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    RouterModule.forChild([{ path: "orders", component: OrderPageComponent }]),
+    RouterModule.forChild([
+      { path: 'orders', component: OrderPageComponent },
+      { path: 'order-details/:id', component: OrderDetailsComponent },
+    ]),
+
     EffectsModule.forFeature([OrdersApiEffects]),
-  ]
+    MatButtonModule,
+    MatMenuModule,
+    MatIconModule,
+    MatCheckboxModule,
+  ],
 })
-export class OrderModule { }
+export class OrderModule {}

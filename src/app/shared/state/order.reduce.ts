@@ -1,17 +1,14 @@
 import { createReducer, on, Action, createSelector } from '@ngrx/store';
 import { createEntityAdapter, EntityState } from '@ngrx/entity';
 import { OrderModel } from 'src/app/shared/models';
-import {
-  OrdersPageActions,
-  OrdersApiActions,
-} from 'src/app/order/actions';
+import { OrdersPageActions, OrdersApiActions } from 'src/app/order/actions';
 
 export interface State extends EntityState<OrderModel> {
   orderID: string | null;
 }
 
 export const adapter = createEntityAdapter<OrderModel>({
-  selectId:order => order.orderID
+  selectId: (order) => order.orderID,
 });
 
 export const initialState: State = adapter.getInitialState({
@@ -20,17 +17,19 @@ export const initialState: State = adapter.getInitialState({
 
 export const ordersReducer = createReducer(
   initialState,
-  on(
-    OrdersPageActions.clearSelectedOrder,
-    OrdersPageActions.enter,
-    (state) => {
-      return {
-        ...state,
-        orderID: null,
-      };
-    }
-  ),
+  on(OrdersPageActions.clearSelectedOrder, OrdersPageActions.enter, (state) => {
+    return {
+      ...state,
+      orderID: null,
+    };
+  }),
   on(OrdersPageActions.selectOrder, (state, action) => {
+    return {
+      ...state,
+      orderID: action.orderId,
+    };
+  }),
+  on(OrdersPageActions.LoadSingleOrder, (state, action) => {
     return {
       ...state,
       orderID: action.orderId,
@@ -39,8 +38,11 @@ export const ordersReducer = createReducer(
   on(OrdersApiActions.ordersLoaded, (state, action) => {
     return adapter.setAll(action.orders, state);
   }),
+  on(OrdersApiActions.singleOrderLoaded, (state, action) => {
+    return adapter.setOne(action.order, state);
+  }),
   on(OrdersApiActions.orderSaved, (state, action) => {
-    return adapter.upsertOne(action.order,state);
+    return adapter.upsertOne(action.order, state);
   }),
   on(OrdersApiActions.orderDeleted, (state, action) => {
     return adapter.removeOne(action.orderId, state);

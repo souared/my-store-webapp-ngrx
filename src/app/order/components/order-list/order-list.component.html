@@ -1,13 +1,30 @@
 <table class="table">
   <thead>
     <tr>
+      <th></th>
       <th scope="col">Order ID</th>
       <th scope="col">Order Date</th>
       <th scope="col">Order Status</th>
     </tr>
   </thead>
   <tbody>
+
     <tr *ngFor="let order of orders">
+      <th scope="row">
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Edit Product">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item [routerLink]="'../order-details/' + order.orderID">
+          <mat-icon>edit</mat-icon>
+          <span>Edit</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>delete</mat-icon>
+          <span>Delete</span>
+        </button>
+      </mat-menu>
+      </th>
       <td> {{order.orderID}}</td>
       <td> {{order.orderDate|date:'MMMM dd, y'}} </td>
       <td> {{order.orderStatus}} </td>

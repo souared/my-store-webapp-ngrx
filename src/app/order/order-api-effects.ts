@@ -1,15 +1,18 @@
 import { Injectable } from '@angular/core';
 import { createEffect, Actions, ofType } from '@ngrx/effects';
-import { mergeMap, map, exhaustMap, concatMap } from 'rxjs/operators';
+import {
+  mergeMap,
+  map,
+  exhaustMap,
+  concatMap,
+  shareReplay,
+} from 'rxjs/operators';
 import { OrderService } from '../shared/services';
 import { OrdersPageActions, OrdersApiActions } from './actions';
 
 @Injectable()
 export class OrdersApiEffects {
-  constructor(
-    private ordersService: OrderService,
-    private actions$: Actions
-  ) {}
+  constructor(private ordersService: OrderService, private actions$: Actions) {}
 
   loadOrders$ = createEffect(() =>
     this.actions$.pipe(
@@ -17,11 +20,7 @@ export class OrdersApiEffects {
       exhaustMap(() =>
         this.ordersService
           .getAll()
-          .pipe(
-            map((orders) =>
-              OrdersApiActions.ordersLoaded({ orders })
-            )
-          )
+          .pipe(map((orders) => OrdersApiActions.ordersLoaded({ orders })))
       )
     )
   );
@@ -32,9 +31,19 @@ export class OrdersApiEffects {
       concatMap((action) =>
         this.ordersService
           .save(action.order)
-          .pipe(
-            map((order => OrdersApiActions.orderSaved({order })))
-          )
+          .pipe(map((order) => OrdersApiActions.orderSaved({ order })))
+      )
+    )
+  );
+
+  loadSingleOrder$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(OrdersPageActions.LoadSingleOrder),
+      exhaustMap((action) =>
+        this.ordersService.getById(action.orderId).pipe(
+          map((order) => OrdersApiActions.singleOrderLoaded({ order: order })),
+          shareReplay(1)
+        )
       )
     )
   );
@@ -53,11 +62,13 @@ export class OrdersApiEffects {
   deleteOrder$ = createEffect(() =>
     this.actions$.pipe(
       ofType(OrdersPageActions.deleteOrder),
-      mergeMap(action =>
+      mergeMap((action) =>
         this.ordersService
           .delete(action.orderId)
           .pipe(
-            map(() => OrdersApiActions.orderDeleted({ orderId: action.orderId }))
+            map(() =>
+              OrdersApiActions.orderDeleted({ orderId: action.orderId })
+            )
           )
       )
     )

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { State, selectAllAuthentications, selectAuthenticationsState, selectActiveAuthentication } from 'src/app/shared/state';
+import { State, selectActiveAuthentication } from 'src/app/shared/state';
 import { AuthenticationsPageActions } from './authentication/actions';
 import { AuthenticationModel } from './shared/models';
 
