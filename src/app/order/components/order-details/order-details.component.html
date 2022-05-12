@@ -16,39 +16,39 @@
 
 <div class="row">
   <div class="col-md-2"><b>Client ID:</b></div>
-  <div class="col-md-2">{{ ordr.client.clientID }}</div>
+  <div class="col-md-2">{{ ordr.client?.clientID }}</div>
 </div>
 
 <div class="row">
   <div class="col-md-2"><b>Name:</b></div>
   <div class="col-md-2">
-    {{ ordr.client.firstName }} {{ ordr.client.lastName }}
+    {{ ordr.client?.firstName }} {{ ordr.client?.lastName }}
   </div>
 </div>
 
 <div class="row">
   <div class="col-md-2"><b>Email:</b></div>
-  <div class="col-md-2">{{ ordr.client.email }}</div>
+  <div class="col-md-2">{{ ordr.client?.email }}</div>
 </div>
 
 <div class="row">
   <div class="col-md-2"><b>Address:</b></div>
-  <div class="col-md-2">{{ ordr.client.address }}</div>
+  <div class="col-md-2">{{ ordr.client?.address }}</div>
 </div>
 
 <div class="row">
   <div class="col-md-2"><b>City:</b></div>
-  <div class="col-md-2">{{ ordr.client.city }}</div>
+  <div class="col-md-2">{{ ordr.client?.city }}</div>
 </div>
 
 <div class="row">
   <div class="col-md-2"><b>Province:</b></div>
-  <div class="col-md-2">{{ ordr.client.province }}</div>
+  <div class="col-md-2">{{ ordr.client?.province }}</div>
 </div>
 
 <div class="row">
   <div class="col-md-2"><b>Postal Code:</b></div>
-  <div class="col-md-2">{{ ordr.client.postalCode }}</div>
+  <div class="col-md-2">{{ ordr.client?.postalCode }}</div>
 </div>
 
 <hr />
@@ -98,9 +98,9 @@
       <div><b>Amount Due</b></div>
     </div>
     <div class="col-md-2">
-      <!-- <div>${{ totalshoppingPrice | number: ".2-2" }}</div>
+      <div>${{ totalOrderPrice | number: ".2-2" }}</div>
       <div>${{ totalGst | number: ".2-2" }}</div>
-      <div>${{ subtotal | number: ".2-2" }}</div> -->
+      <div>${{ subtotal | number: ".2-2" }}</div>
     </div>
   </div>
 </div>
