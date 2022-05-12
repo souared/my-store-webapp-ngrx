@@ -1,4 +1,4 @@
-import { ProductModule } from "src/app/product";
+import { ProductModel } from "./product.model";
 
 
 
@@ -9,7 +9,7 @@ export interface OrderDetailsModel {
   productID: string;
   qty: number;
   unitPrice: number;
-  product: ProductModule;
+  product: ProductModel;
 
 
 }

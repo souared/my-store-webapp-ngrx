@@ -1,19 +1,106 @@
-<p>order Summary</p>
-Order ID: {{ordr.orderID}}<br/>
-Order Date: {{ordr.orderDate}}<br/>
-Order Status: {{ordr.orderStatus}}<br/>
+<h1>Order Summary</h1>
+<div class="row">
+  <div class="col-md-2"><b>Order ID:</b></div>
+  <div class="col-md-2">{{ ordr.orderID }}</div>
+</div>
+<div class="row">
+  <div class="col-md-2"><b>Order Date:</b></div>
+  <div class="col-md-2">{{ ordr.orderDate |date:'MMMM dd, y'}}</div>
+</div>
 
+<div class="row">
+  <div class="col-md-2"><b>Order Status:</b></div>
+  <div class="col-md-2">{{ ordr.orderStatus }}</div>
+</div>
+<hr />
 
-<hr>
+<div class="row">
+  <div class="col-md-2"><b>Client ID:</b></div>
+  <div class="col-md-2">{{ ordr.client.clientID }}</div>
+</div>
 
-Client ID: {{ordr.client?.clientID}}<br/>
-Name: {{ordr.client?.firstName}} {{ordr.client?.lastName}}<br/>
-Email: {{ordr.client?.email}}<br/>
-Address: {{ordr.client?.address}}<br/>
-City: {{ordr.client?.city}}<br/>
-Province: {{ordr.client?.province}}<br/>
-Postal Code: {{ordr.client?.postalCode}}<br/>
+<div class="row">
+  <div class="col-md-2"><b>Name:</b></div>
+  <div class="col-md-2">
+    {{ ordr.client.firstName }} {{ ordr.client.lastName }}
+  </div>
+</div>
 
+<div class="row">
+  <div class="col-md-2"><b>Email:</b></div>
+  <div class="col-md-2">{{ ordr.client.email }}</div>
+</div>
 
-<hr>
-order Details
+<div class="row">
+  <div class="col-md-2"><b>Address:</b></div>
+  <div class="col-md-2">{{ ordr.client.address }}</div>
+</div>
+
+<div class="row">
+  <div class="col-md-2"><b>City:</b></div>
+  <div class="col-md-2">{{ ordr.client.city }}</div>
+</div>
+
+<div class="row">
+  <div class="col-md-2"><b>Province:</b></div>
+  <div class="col-md-2">{{ ordr.client.province }}</div>
+</div>
+
+<div class="row">
+  <div class="col-md-2"><b>Postal Code:</b></div>
+  <div class="col-md-2">{{ ordr.client.postalCode }}</div>
+</div>
+
+<hr />
+
+<div class="px-5" *ngIf="ordr.orderDetails !== undefined">
+  <h2>Details</h2>
+
+  <b>
+    <div class="row">
+      <div class="col-md-2">Name</div>
+      <div class="col-md-3"></div>
+      <div class="col-md-2">Unit Price</div>
+      <div class="col-md-2">Qty</div>
+      <div class="col-md-2">Total</div>
+      <hr />
+    </div>
+  </b>
+
+  <div *ngFor="let item of ordr.orderDetails">
+    <div class="row">
+      <div class="col-md-2">
+        {{ item.product.name }}
+      </div>
+      <div class="col-md-3"></div>
+      <div class="col-md-2">
+        <div class="form-group">
+          {{ item.qty }}
+        </div>
+
+      </div>
+      <div class="col-md-2">
+        ${{ item.product.listingPrice | number: ".2-2" }}
+      </div>
+      <div class="col-md-2">
+        ${{item.qty * item.product.listingPrice  | number : '.2-2'}}
+      </div>
+    </div>
+  </div>
+<br>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-3"></div>
+    <div class="col-md-2"></div>
+    <div class="col-md-2">
+      <div><b>Subtotal</b></div>
+      <div><b>GST</b></div>
+      <div><b>Amount Due</b></div>
+    </div>
+    <div class="col-md-2">
+      <!-- <div>${{ totalshoppingPrice | number: ".2-2" }}</div>
+      <div>${{ totalGst | number: ".2-2" }}</div>
+      <div>${{ subtotal | number: ".2-2" }}</div> -->
+    </div>
+  </div>
+</div>
