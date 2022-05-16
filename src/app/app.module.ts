@@ -19,6 +19,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OrderModule } from './order/order.module';
 import { AuthenticationModule } from './authentication/authentication.module';
 
+import { JwtModule } from "@auth0/angular-jwt";
+
 @NgModule({
   declarations: [
     AppComponent
@@ -41,7 +43,12 @@ import { AuthenticationModule } from './authentication/authentication.module';
    OrderModule,
    AuthenticationModule,
    NgbModule,
-   BrowserAnimationsModule
+   BrowserAnimationsModule,
+   JwtModule.forRoot({
+    config: {
+      tokenGetter: () => localStorage.getItem('token')
+    }
+  })
   ],
   providers: [],
   bootstrap: [AppComponent]
